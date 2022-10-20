@@ -1,0 +1,23 @@
+{
+  "name": "redis-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilioSp/redis-playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilioSp/redis-playground/issues"
+  },
+  "homepage": "https://github.com/emilioSp/redis-playground#readme",
+  "dependencies": {
+    "redis": "^4.3.1"
+  }
+}
