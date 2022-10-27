@@ -20,11 +20,8 @@ const family = [{
   age: 4
 }];
 
-const multi = client.multi();
-
-family.map(f => multi.zAdd('family', { score: f.age, value: JSON.stringify(f) }));
-
-await multi.exec();
+const members = family.map(f => ({ score: f.age, value: JSON.stringify(f) }));
+await client.zAdd('family', members);
 
 const orderedFamily = await client.zRange('family', 0, -1);
 console.log(orderedFamily);

@@ -10,13 +10,7 @@ await client.del('words');
 
 const words = ["ciao", "come", "stai?", "ti", "trovo", "bene", "grazie"];
 
-const multi = client.multi();
-
-for (const w of words) {
-  multi.rPush('words', w);
-} 
-
-await multi.exec();
+await client.rPush('words', words);
 
 let wordsInRedis = await client.lRange('words', 0, -1);
 
