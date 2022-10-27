@@ -28,4 +28,12 @@ for (const u of users) {
   .exec();
 }
 
+const usersIdsInRedis = await client.sMembers('users');
+console.log(usersIdsInRedis);
+
+const getUsersCommand = usersIdsInRedis.map(userId => client.get(`users:${userId}`));
+const usersInRedis = (await Promise.all(getUsersCommand)).map(u => JSON.parse(u));
+
+console.log(usersInRedis);
+
 await client.disconnect();
