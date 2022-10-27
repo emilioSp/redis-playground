@@ -1,4 +1,5 @@
 import { createClient } from 'redis';
+import { strict as assert } from 'node:assert';
 
 const client = createClient();
 
@@ -35,5 +36,9 @@ const getUsersCommand = usersIdsInRedis.map(userId => client.get(`users:${userId
 const usersInRedis = (await Promise.all(getUsersCommand)).map(u => JSON.parse(u));
 
 console.log(usersInRedis);
+
+const notExists = await client.get('not-exists');
+
+assert.deepEqual(notExists, null);
 
 await client.disconnect();
