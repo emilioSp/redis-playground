@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "users": "node users.js"
+    "users": "node users.js",
+    "list": "node list.js"
   },
   "repository": {
     "type": "git",
